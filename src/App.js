@@ -34,7 +34,7 @@ setFavourites(movieFavourites)
 
 const getMovies = async(searchValue)=>{
 const response = await fetch(
-`http://www.omdbapi.com/?s=${searchValue}s&apikey=2fbf23b`
+`https://www.omdbapi.com/?s=${searchValue}s&apikey=2fbf23b`
 )
 const data = await response.json()
 console.log(data)
