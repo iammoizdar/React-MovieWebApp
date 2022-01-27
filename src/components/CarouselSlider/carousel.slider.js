@@ -1,5 +1,5 @@
 import styled, {
-    css
+  css
 } from 'styled-components'
 import Moneyheist from "../../assets/Images/moneyheistbg.png"
 import SecondMovie from "../../assets/Images/second-movie.png"
@@ -11,7 +11,9 @@ export const Moviecard = styled.div `
     max-height: 516px;
     margin: auto;
     width: 970px;
-    height: 516px;
+    height: 516px; 
+    border-radius: 26px;
+    cursor: pointer;
     background: url(${Moneyheist});
   ${props => props.primary && css`
   background: url(${SecondMovie});
@@ -29,4 +31,5 @@ export const CarouselWrapper = styled.div `
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: hidden;
 `
