@@ -1,18 +1,23 @@
 import { useState, useEffect } from 'react';
-import Movies from './Movies';
+import Movies from './components/Movies';
 import './App.css';
-import MoviesHeading from './MoviesHeading';
-import SearchMovies from './SearchMovies';
-import AddFavourites from './AddFavourites';
-import RemoveFavourites from './RemoveFavourites';
-import Animations from './Animations';
+import MoviesHeading from './components/MoviesHeading';
+import SearchMovies from './components/SearchMovies';
+import AddFavourites from './components/AddFavourites';
+import RemoveFavourites from './components/RemoveFavourites';
+import Animations from './components/Animations';
+import { Logo, Nav, StyledNavbar } from './components/Navbar/Navabr.styles';
+import SiteLogo from './assets/Images/netflixlogo.png'
+import MovieCarousel from './components/CarouselSlider/MovieCarousel';
 
 
 function App() {
+  
 // STATES
 const [movies, setMovies] = useState([])
 const [searchValue, setSearchValue] = useState('')
 const [favourites, setFavourites] = useState([])
+
 
 useEffect(()=>{
 getMovies(searchValue)
@@ -69,16 +74,21 @@ saveToLocalStorage(FavouriteList)
 
 
 
-
-
 return (
 <div className="App">
   <div class="area">
      <Animations />
-    <div className="heading">
-      <MoviesHeading title="Movies Web App" />
-      <SearchMovies searchValue={searchValue} setSearchValue={setSearchValue} />
-    </div>
+    <StyledNavbar>
+          <div className="container">
+              <Nav>
+          <Logo><img src={SiteLogo} alt="Logo" /></Logo>
+          <SearchMovies searchValue={searchValue} setSearchValue={setSearchValue}/>
+          </Nav>
+          </div>
+      </StyledNavbar>
+      <MovieCarousel/>
+
+
     <div className="movies-container">
       <Movies movies={movies} handleFavouriteClick={addFavoutiteMovie} favouriteComponent={AddFavourites} />
       <div className="movies-favourites">

@@ -9,8 +9,16 @@
 body {
   font-family: 'Poppins',
     sans-serif;
-  background: #010006;
-  background: -webkit-linear-gradient(to left, #010006, #010006);
+  background: #313841;
+  /* background: -webkit-linear-gradient(to left, #010006, #010006); */
+}
+
+
+.container {
+  max-width: 1400px;
+  padding: 20px 24px;
+  margin: auto;
+  width: 100%;
 }
 
 .movie-card img {
@@ -32,40 +40,56 @@ input.search-bar {
   height: 45px;
   padding: 0 20px;
   font-size: 1rem;
-  border: 1px solid #d0cfce;
+  border: none;
   outline: none;
   border-radius: 24px;
   padding: 0 12px;
+  color: #dadada !important;
   max-width: 400px;
+  background: #414f57;
 }
 
-input.search-bar:focus {
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #414f57;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 50px;
+  min-height: 35px;
+  padding: 0 12px;
+  height: 45px;
+  border: 1px solid transparent;
+}
+
+input.search-form:focus {
   border: 1px solid #008abf;
   transition: 0.35s ease;
-  color: #008abf;
+  color: #dadada;
 }
 
-input.search-bar:focus::-webkit-input-placeholder {
+input.search-form:focus::-webkit-input-placeholder {
   transition: opacity 0.45s ease;
   opacity: 0;
 }
 
-input.search-bar:focus::-moz-placeholder {
+input.search-form:focus::-moz-placeholder {
   transition: opacity 0.45s ease;
   opacity: 0;
 }
 
-input.search-bar:focus:-ms-placeholder {
+input.search-form:focus:-ms-placeholder {
   transition: opacity 0.45s ease;
   opacity: 0;
 }
 
 
-.heading {
+
+/* .heading {
   display: flex;
-  padding: 60px 0;
   justify-content: space-around;
-}
+} */
 
 
 .movie-card {
@@ -259,4 +283,18 @@ input.search-bar:focus:-ms-placeholder {
     border-radius: 50%;
   }
 
+}
+
+
+
+
+
+
+
+
+
+/* Slider CSS */
+
+.carousel .slide img {
+  border-radius: 17px;
 }
