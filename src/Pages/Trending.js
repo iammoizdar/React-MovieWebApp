@@ -1,48 +1,33 @@
-import React from 'react';
-import { useEffect, useState } from 'react'
-import axios from 'axios';
-
+import TrendingMovies from "../components/TrendingMovies";
+import { useState, useEffect } from "react";
 const Trending = () => {
 
-
-// useEffect(()=>{
-//     getTrending()
-// },[])
+  const [trendmovie, setTrendmovie]=useState([])
 
 
+  useEffect(()=>{
+    gettrendingmovies()
+  },[])
 
-// Fetching The Trending Api
+const gettrendingmovies= async()=>{
+  const theresponse = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d59ad13a6ae753bf936cf21fa4238724`)
+  const moviesdata = await theresponse.json()
+  setTrendmovie(moviesdata.results)
+  console.log(moviesdata.results)
+}
 
-// const getTrending = async()=>{
-//     const theResponse = await fetch(
-//         `https://api.themoviedb.org/3/trending/all/day?api_key=d59ad13a6ae753bf936cf21fa4238724`
-//     )
-
-//     const movieinfos = await theResponse.json()
-//     console.log(movieinfos)
-   
-  
-// }
-const [person,setPerson]=useState([])
-// const [name,setName]=useState([])
-
-
-useEffect(()=>{
-   axios.get(`https://api.themoviedb.org/3/trending/all/day?api_key=d59ad13a6ae753bf936cf21fa4238724`)
-      .then(res => {
-        const persons = res.data;
-        setPerson( persons);
-      })
-    },[])
-    console.log(person);
-
-
-return(
-    <div>
-    
-                        
-    </div>
-  );
+     
+  return (
+<>
+    {trendmovie.map(trendingmovieslist =>(
+      <TrendingMovies movieTitle={trendingmovieslist.trendingmovieslist.original_title} Popularity={trendingmovieslist.trendingmovieslist.popularity} Mediatype={trendingmovieslist.trendingmovieslist.media_type} Releasedate={trendingmovieslist.trendingmovieslist.release_date} Votecount={trendingmovieslist.trendingmovieslist.vote_count}
+      image={trendingmovieslist.trendingmovieslist.poster_path} key={trendingmovieslist.trendingmovieslist.original_title}
+      />
+    ))}
+    </>
+  )
 };
+
+
 
 export default Trending;

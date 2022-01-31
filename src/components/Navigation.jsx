@@ -1,60 +1,69 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Trending from '../Pages/Trending';
-import Popular from '../Pages/Popular';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import TvIcon from "@material-ui/icons/Tv";
+import MovieIcon from "@material-ui/icons/Movie";
+import SearchIcon from "@material-ui/icons/Search";
+import WhatshotIcon from "@material-ui/icons/Whatshot";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
-    flexGrow: 1,
-    backgroundColor: '#313840',
-    color: '#fff',
+    width: "100%",
+    position: "fixed",
+    bottom: 0,
+    backgroundColor: "#2d313a",
+    zIndex: 100,
   },
 });
 
-export default function CenteredTabs() {
+export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const history = useHistory();
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  const routes =['/Trending', '/Popular']
+  useEffect(() => {
+    if (value === 0) {
+      history.push("/");
+    } else if (value === 1) {
+      history.push("/Popular");
+    } else if (value === 2) {
+      history.push("/Alltime");
+    } else if (value === 3) {
+      history.push("/search");
+    }
+  }, [value, history]);
 
   return (
-
-    <BrowserRouter>
-    <Route path="/">
-  <Paper className={classes.root}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        centered
-      >
-        <Tab 
-        value={routes[0]}
-        component={Link}
-        to={routes[0]}
-        label="Trending" />
-        <Tab 
-         value={routes[1]}
-        component={Link}
-        to={routes[1]}
-        label="Popular" />
-        <Tab label="All Time" />
-      </Tabs>
-    </Paper>
-    </Route>
-    <Switch>
-          <Route path="/trending" component={Trending} />
-          <Route path="/popular" component={Popular} />
-        </Switch>
-    </BrowserRouter>
-  
+    <BottomNavigation
+      value={value}
+      onChange={(event, newValue) => {
+        setValue(newValue);
+      }}
+      showLabels
+      className={classes.root}
+    >
+      <BottomNavigationAction
+        style={{ color: "white" }}
+        label="Trending"
+        icon={<WhatshotIcon />}
+      />
+      <BottomNavigationAction
+        style={{ color: "white" }}
+        label="Movies"
+        icon={<MovieIcon />}
+      />
+      <BottomNavigationAction
+        style={{ color: "white" }}
+        label="TV Series"
+        icon={<TvIcon />}
+      />
+      <BottomNavigationAction
+        style={{ color: "white" }}
+        label="Search"
+        icon={<SearchIcon />}
+      />
+    </BottomNavigation>
   );
 }
