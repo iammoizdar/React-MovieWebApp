@@ -9,6 +9,7 @@ import Animations from './components/Animations';
 import { Logo, Nav, StyledNavbar } from './components/Navbar/Navabr.styles';
 import SiteLogo from './assets/Images/netflixlogo.png'
 import MovieCarousel from './components/CarouselSlider/MovieCarousel';
+import CenteredTabs from './components/Navigation';
 
 
 function App() {
@@ -86,6 +87,7 @@ return (
           </Nav>
           </div>
       </StyledNavbar>
+          <CenteredTabs/>
       <MovieCarousel/>
 
 
