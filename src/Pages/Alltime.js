@@ -1,6 +1,9 @@
 import React from "react";
+import Content from "../components/Content";
 const Alltime = () => {
-  return <div>All Time</div>;
+  return ( <
+    Content / >
+  )
 };
 
 export default Alltime;

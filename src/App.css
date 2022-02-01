@@ -89,7 +89,9 @@ input.search-form:focus:-ms-placeholder {
   display: flex;
   justify-content: space-around;
 } */
-
+.movie-info img {
+  width: 100%;
+}
 
 .movie-card {
   width: 20%;
@@ -110,6 +112,10 @@ input.search-form:focus:-ms-placeholder {
   min-width: 324px;
 }
 
+.trendmoviedetails {
+  opacity: 0;
+}
+
 .movie-card:hover {
   transition: all 0.2s ease-out;
   box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
@@ -118,6 +124,10 @@ input.search-form:focus:-ms-placeholder {
   color: #000;
   transform: scale(1.1);
 }
+
+/* .movie-card:hover .trendmoviedetails {
+  opacity: 1;
+} */
 
 .movie-card:hover .add-fav {
   opacity: 1;

@@ -1,8 +1,13 @@
 import TrendingMovies from "../components/TrendingMovies";
 import { useState, useEffect } from "react";
+import { StyledNavbar, Nav, Logo } from "../components/Navbar/Navabr.styles";
+import SearchMovies from "../components/SearchMovies";
+import SiteLogo from '../assets/Images/netflixlogo.png'
+import MovieCarousel from "../components/CarouselSlider/MovieCarousel";
+import Animations from "../components/Animations";
 const Trending = () => {
 
-  const [trendmovie, setTrendmovie]=useState([])
+  const [trendmovies, setTrendmovie]=useState([])
 
 
   useEffect(()=>{
@@ -10,7 +15,7 @@ const Trending = () => {
   },[])
 
 const gettrendingmovies= async()=>{
-  const theresponse = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d59ad13a6ae753bf936cf21fa42387244`)
+  const theresponse = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=d59ad13a6ae753bf936cf21fa4238724`)
   const moviesdata = await theresponse.json()
   setTrendmovie(moviesdata.results)
   console.log(moviesdata)
@@ -19,11 +24,17 @@ const gettrendingmovies= async()=>{
      
   return (
 <>
-    {trendmovie.map(trendingmovieslist =>(
-      <TrendingMovies movieTitle={trendingmovieslist.original_title} Popularity={trendingmovieslist.popularity} Mediatype={trendingmovieslist.media_type} Releasedate={trendingmovieslist.release_date} Votecount={trendingmovieslist.vote_count}
-      image={trendingmovieslist.poster_path} key={trendingmovieslist.original_title}
-      />
-    ))}
+   <StyledNavbar>
+          <div className="container">
+              <Nav>
+          <Logo><img src={SiteLogo} alt="Logo" /></Logo>
+          <SearchMovies />
+          </Nav>
+          </div>
+      </StyledNavbar>
+      <MovieCarousel/>
+      <Animations/>
+        <TrendingMovies trendmovies={trendmovies} />
     </>
   )
 };

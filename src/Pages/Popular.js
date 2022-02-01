@@ -1,7 +1,8 @@
 import React from 'react';
+import Content from '../components/Content';
 
 const Popular = () => {
-  return <div>Popular</div>;
+  return <Content / >
 };
 
 export default Popular;
