@@ -1,11 +1,21 @@
 import Content from "../components/Content";
+import styled from "styled-components";
+
+
+const Trendingmovies = styled.div`
+  display:flex;
+`
+
+
+
+
 const TrendingMovies = ({image, movieTitle, Popularity, Releasedate, Mediatype, Votecount}) => {
     
 
   return(
     <>
 <Content Title="Trending"/>
-  
+<Trendingmovies>
 <div className='movie-card'>
         <div className="movie-info">
         <img src={image} alt="movie" />
@@ -16,6 +26,10 @@ const TrendingMovies = ({image, movieTitle, Popularity, Releasedate, Mediatype, 
         <h3>{Votecount}</h3>
         </div>
     </div>
+</Trendingmovies>
+
+
+ 
   
 </>
 )}

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Animations = () => {
 return (
-<ul class="circles">
+<ul className="circles">
     <li></li>
     <li></li>
     <li></li>
