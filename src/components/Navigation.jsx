@@ -56,7 +56,7 @@ export default function SimpleBottomNavigation() {
       />
       <BottomNavigationAction
         style={{ color: "white" }}
-        label="TV Series"
+        label="Youtube Movies"
         icon={<TvIcon />}
       />
       <BottomNavigationAction

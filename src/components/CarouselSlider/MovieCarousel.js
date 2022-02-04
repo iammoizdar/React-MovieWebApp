@@ -1,7 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { Moviecard } from "./carousel.slider";
-import { CarouselWrapper } from "./carousel.slider";
+// import { CarouselWrapper } from "./carousel.slider";
 import MovieCarddetails from "./MovieCardDetails";
 
 
@@ -12,10 +12,10 @@ const MovieCarousel=()=> {
 
 
         return (
-            <CarouselWrapper>
+            // <CarouselWrapper>
 
          
-            <Carousel showArrows={false}  showThumbs={false} showIndicators={true} infiniteLoop={true} autoPlay={true} transitionTime={3}>
+            <Carousel showArrows={false}  showThumbs={false} showIndicators={true} infiniteLoop={true} autoPlay={true} transitionTime={3} onChange={onchange} swipeable={true} emulateTouch={true}>
                 <Moviecard >
                     <MovieCarddetails
                     movietitle="Money Heist" 
@@ -65,7 +65,7 @@ const MovieCarousel=()=> {
                 </Moviecard>
           
             </Carousel>
-               </CarouselWrapper>
+            //    </CarouselWrapper>
         )
     
 }

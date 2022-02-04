@@ -6,13 +6,15 @@ import SecondMovie from "../../assets/Images/second-movie.png"
 import ThirdMovie from "../../assets/Images/third-movie.png"
 export const Moviecard = styled.div `
   display: flex;
-    max-width: 980px;
     width: 100%;
-    max-height: 516px;
+    margin: auto; 
+    max-width: 1300px;
+    background-size: cover !important;
+    min-height: 616px;
     margin: auto;
-    width: 970px;
-    height: 516px; 
+    padding: 0 40px;
     border-radius: 26px;
+  max-height: 528px;
     cursor: pointer;
     background: url(${Moneyheist});
   ${props => props.primary && css`

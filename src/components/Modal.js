@@ -19,14 +19,14 @@ const style = {
   borderRadius: 10,
 };
 
-export default function TransitionsModal(props) {
+export default function TransitionsModal(movie) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Read More</Button>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -41,10 +41,10 @@ export default function TransitionsModal(props) {
         <Fade in={open}>
           <Box sx={style}>
             <Typography id="transition-modal-title" variant="h6" component="h2">
-            {props.text}
+            {movie.text}
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              {props.details}
+              {movie.details}
             </Typography>
           </Box>
         </Fade>
